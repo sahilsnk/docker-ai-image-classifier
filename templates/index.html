@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Docker AI Image Classifier</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #333; }
+        form { margin-bottom: 20px; }
+        input[type="file"] { margin: 10px 0; }
+        .result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Image Classifier using MobileNetV2</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <br>
+        <input type="submit" value="Classify">
+    </form>
+    {% if prediction %}
+    <div class="result">
+        <h2>Prediction:</h2>
+        <p>{{ prediction }}</p>
+        {% if image_url %}
+        <h3>Uploaded Image:</h3>
+        <img src="{{ url_for('static', filename=image_url) }}" alt="Uploaded Image" width="300">
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>
