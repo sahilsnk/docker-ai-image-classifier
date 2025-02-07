@@ -41,9 +41,9 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t your-dockerhub-username/docker-ai-image-classifier .
-          docker tag your-dockerhub-username/docker-ai-image-classifier your-dockerhub-username/docker-ai-image-classifier:latest
-          docker push your-dockerhub-username/docker-ai-image-classifier:latest
+          docker build -t sahilsnk/docker-ai-image-classifier .
+          docker tag sahilsnk/docker-ai-image-classifier sahilsnk/docker-ai-image-classifier:latest
+          docker push sahilsnk/docker-ai-image-classifier:latest
 
   deploy:
     needs: docker
